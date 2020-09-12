@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+  <head>
+    <title><%= @page_title.present? ? t(@page_title) : t('gateway_layout') %></title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <%= javascript_include_tag 'cmcb_gateway/offsite_redirect_submission' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+class CmcbStatusCheckError < StandardError
+  
+end

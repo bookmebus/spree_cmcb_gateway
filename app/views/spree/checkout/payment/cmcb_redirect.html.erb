@@ -1,0 +1,16 @@
+<% @page_title = "CMCB Bank Bank!" %>
+
+<h3>
+  You are being transferred to a secure online payment...
+</h3>
+
+
+<form id='form-payment-redirect' style='display:none;'  action="<%=@client_redirect.endpoint%>"  method="post">
+  <% @client_redirect.request_params.each do |key, value| %>
+    <div style='padding: 5px;' class="clearfix;">
+      <%=label_tag key, key, style: 'float: left; width: 100px;' %>
+      <%= text_field_tag key, value, size: 120, style: 'margin-left: 110px;' %>
+    </div>
+  <% end %>
+  <button>Submit</button>
+</form>

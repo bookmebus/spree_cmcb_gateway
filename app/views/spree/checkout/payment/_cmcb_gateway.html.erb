@@ -1,0 +1,16 @@
+<h1>CMCB Gateway</h1>
+<%= hidden_field_tag "payment_source[#{payment_method.id}][payment_method_name]", 'cmcb_qrcode' %>
+<div class='d-xl-none'>
+  <%= link_to href:'javascript:void(0)' do %>
+    <%= image_tag 'cmcb_gateway/chipmong-bank-mobile.png'%>
+  <% end %>
+</div>
+
+<div class='d-xl-block d-none'>
+  <%= link_to href:'javascript:void(0)' do %>
+    <%= image_tag 'cmcb_gateway/chipmong-bank-wide.jpeg'%>
+  <% end %>
+</div>
+
+
+

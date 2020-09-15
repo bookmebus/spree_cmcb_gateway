@@ -49,38 +49,12 @@ module Spree
     end
 
     def process(money, source, gateway_options)
-      byebug
-      p "-" * 80
-      p "purchase"
       Rails.logger.debug{"About to create payment for order #{gateway_options[:order_id]}"}
+      # First of all, invalidate all previous tranx orders to prevent multiple paid orders
+      # source.save!
+      ActiveMerchant::Billing::Response.new(true, 'Order created')
 
-      begin
-        p "-" * 80
-        p gateway_options
-        # First of all, invalidate all previous Mollie orders to prevent multiple paid orders
-        # Create a new Mollie order and update the payment source
-        # source.save!
-        ActiveMerchant::Billing::Response.new(true, 'Order created')
-      end
     end
-
-    # def purchase(amount, transaction_details, options = {})
-    #   byebug
-    #   p "-" * 80
-    #   p "purchase"
-    #   ActiveMerchant::Billing::Response.new(true, 'success', {}, {})
-    # end
   
-    def authorize(*_args)
-      p "-" * 80
-      p "authorize"
-      ActiveMerchant::Billing::Response.new(true, 'The gateway will automatically capture the amount after creating a shipment.')
-    end
-
-    def capture(*_args)
-      p "-" * 80
-      p "capture"
-      ActiveMerchant::Billing::Response.new(true, 'The gateway will automatically capture the amount after creating a shipment.')
-    end
   end
 end

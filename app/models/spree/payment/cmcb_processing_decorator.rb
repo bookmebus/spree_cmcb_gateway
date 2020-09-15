@@ -1,9 +1,5 @@
 module Spree::Payment::CmcbProcessingDecorator
   def process!
-    p "*" * 80
-    p "Process in payment"
-    byebug
-
     if payment_method.is_a? Spree::Gateway::CmcbGateway # Spree::Gateway::CmcbGateway
       process_with_cmcb_gateway
     else
@@ -27,7 +23,6 @@ module Spree::Payment::CmcbProcessingDecorator
   end
 
   def process_with_cmcb_gateway
-    p "process with cmcb gateway"
     amount ||= money.money
     started_processing!
 
@@ -40,6 +35,4 @@ module Spree::Payment::CmcbProcessingDecorator
   end
 end
 
-p "-" * 80
-p "load processing decorator----------------"
 Spree::Payment.include(Spree::Payment::CmcbProcessingDecorator)
